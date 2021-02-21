@@ -8,6 +8,7 @@ $column_names_as = array(
     "product_name" => "Product Name",
     "product_label" => "Product Label",
     "product_quantity" => "Product Quantity",
+    "created_at" => "Purchase Date",
     "additional_specifications" => "Additional Specifications",
 );
 

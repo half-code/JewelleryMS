@@ -54,7 +54,7 @@ class Invoice extends Table
         return CRUD::update(self::$table_name, $this->columns_values, "invoice_id={$this->invoice_id}");
     }
     public static function viewAll(){
-        return $rs = CRUD::query("SELECT @sr_no:=@sr_no+1 as serial_no, invoices.*,customers.customer_name,customers.customer_contact FROM invoices JOIN customers ON invoices.customer_id=customers.customer_id INNER JOIN (SELECT @sr_no:=0) AS a WHERE invoices.deleted = 0");
+        return $rs = CRUD::query("SELECT @sr_no:=@sr_no+1 as serial_no, invoices.*,customers.customer_name,customers.customer_contact, GROUP_CONCAT(CONCAT(products.product_name, '-',products.product_label) SEPARATOR ',') AS product_name FROM invoices JOIN customers ON invoices.customer_id=customers.customer_id INNER JOIN (SELECT @sr_no:=0) AS a INNER JOIN invoice_product ON invoices.invoice_id = invoice_product.invoice_id INNER JOIN products on invoice_product.product_id = products.product_id  WHERE invoices.deleted = 0 GROUP BY invoices.invoice_id");
     }
 
 

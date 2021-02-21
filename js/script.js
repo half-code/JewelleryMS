@@ -83,6 +83,6 @@ $(function(){
      * This is used to login into hidden modlue when the user double clicks the profile icon
      */
     $('#h-profile').dblclick(function () {
-        window.location = "http://localhost/JewelleryMS/login.php";
+        window.location.href = "/login.php";
     });
 });

@@ -5,7 +5,8 @@ $rs = Invoice::viewAll();
 //This array will store the table headers for the columns we are selecting from database
 $column_names_as = array(
     "invoice_no" => "Inv No",
-    "invoice_date" => "Dated",
+    "product_name"=>"Product Name",
+    "created_at" => "Sell Date",
     "customer_name" => "Customer Name",
     "customer_contact" => "Customer Contact",
 );
